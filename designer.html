@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101114">
+  <link rel="icon" type="image/png" sizes="150x150" href="logo.png">
+  <meta name="description" content="შექმენი შენზე მორგებული ნეონის აბრა.">
+  <title>Neon Tbilisi — ნეონის დიზაინერი</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&family=Pacifico&family=Playfair+Display:ital,wght@1,600&family=Permanent+Marker&family=Allura&family=Oswald:wght@400;500;600&family=Monoton&family=Righteous&family=Caveat:wght@500;700&family=Great+Vibes&family=Archivo+Black&family=Bebas+Neue&family=Sacramento&family=Fredoka:wght@500;600;700&family=Comfortaa:wght@500;700&family=Josefin+Sans:wght@500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light; --page:#08090d; --paper:#f7f7f4; --muted:#b7bbc4; --line:#30323a; --lime:#d7f45b; --sign-color:#55e4f2; --neon-gradient:linear-gradient(90deg,#55e4f2,#55e4f2); --sign-glow:#55e4f2; --font:"Noto Sans Georgian","DM Sans",sans-serif; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:var(--page); color:var(--paper); font-family:var(--font); }
+    a { color:inherit; text-decoration:none; }
+    button,input,textarea,select { font:inherit; }
+    .header { min-height:90px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; padding:8px clamp(16px,4vw,52px) 12px; border-bottom:1px solid var(--line); background:#08090d; }
+    .brand { display:flex; align-items:center; justify-content:center; gap:10px; font:800 17px "DM Sans",sans-serif; letter-spacing:1px; }
+    .brand-mark { width:44px; height:44px; display:block; object-fit:contain; }
+    .nav { display:flex; align-items:center; justify-content:center; gap:18px; color:#e5e7eb; font-size:12px; }
+    .nav a:hover { color:var(--lime); }
+    .nav .order-link { padding:9px 13px; background:#fff; color:#111827; font-weight:700; }
+    .page-title { padding:18px 20px 14px; background:#08090d; color:#f7f7f4; text-align:center; }
+    .page-title p { margin:0 0 8px; color:var(--lime); font-size:10px; font-weight:700; letter-spacing:1px; }
+    .page-title h1 { margin:0; font-size:13px; line-height:1.8; }
+    .page-description { max-width:760px; margin:7px auto 0; color:#c1c5ce; font-size:13px; line-height:1.8; }
+    .studio { height:calc(100vh - 245px); min-height:min(520px,calc(100vh - 245px)); display:grid; grid-template-columns:minmax(0,1fr) minmax(390px,460px); }
+    .preview-area { position:relative; height:100%; min-height:0; display:flex; flex-direction:column; padding:16px; background:#08090d; }
+    .stage { position:relative; flex:1; min-height:0; display:grid; place-items:center; overflow:hidden; background-position:center; background-size:cover; background-color:#000; isolation:isolate; }
+    .stage::before { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,#0002,#0005); }
+    .sign-board { width:min(78%,680px); min-height:130px; display:grid; place-items:center; padding:18px; border:1px solid #ffffff30; background:#0002; transform:rotate(-1deg); transition:width .2s; }
+    .sign-text { max-width:100%; color:#fff; -webkit-text-fill-color:#fff; -webkit-text-stroke:2px var(--sign-color); font-family:"Noto Sans Georgian",sans-serif; font-size:clamp(28px,5.4vw,74px); line-height:1.2; text-align:center; overflow-wrap:anywhere; white-space:pre-wrap; }
+    .stage-label { position:absolute; top:13px; left:14px; padding:7px 9px; background:#101114b8; color:white; font-size:10px; }
+    .scenes { display:flex; gap:8px; overflow-x:auto; padding-top:10px; }
+    .scene { flex:0 0 68px; aspect-ratio:1.3; padding:0; overflow:hidden; border:1px solid #ffffff55; background:#222; cursor:pointer; }
+    .scene img { width:100%; height:100%; display:block; object-fit:cover; }
+    .scene[aria-pressed=true] { outline:2px solid var(--lime); outline-offset:-2px; }
+    .controls { min-width:0; height:100%; min-height:0; overflow:auto; padding:18px 22px 25px; border-left:1px solid #30323a; background:#08090d; color:#f7f7f4; }
+    .step { padding:15px 0; border-top:1px solid #30323a; }
+    .step h2 { margin:0 0 10px; font:800 13px "DM Sans",var(--font); }
+    .text-input { width:100%; min-height:75px; padding:11px; border:1px solid #444751; background:#17191f; color:#f7f7f4; resize:vertical; }
+    .font-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; }
+    .font-option { min-width:0; height:40px; padding:4px; overflow:hidden; border:1px solid #343741; background:#1b1d24; color:#f1f2f4; cursor:pointer; white-space:nowrap; text-overflow:ellipsis; font-size:12px; }
+    .font-option[aria-pressed=true] { border-color:#d7f45b; background:#d7f45b; color:#111827; }
+    .color-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:9px 5px; }
+    .color-choice { display:grid; justify-items:center; gap:5px; padding:0; border:0; background:transparent; color:#e0e2e7; cursor:pointer; font-size:9px; }
+    .swatch { width:min(100%,42px); aspect-ratio:1; border:3px solid white; outline:1px solid #d9dade; border-radius:10px; background:var(--swatch); }
+    .color-choice[aria-pressed=true] .swatch { outline:2px solid #d7f45b; outline-offset:2px; }
+    .size-row { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+    .field-label { display:block; margin-bottom:5px; color:#c1c5ce; font-size:10px; }
+    .select { width:100%; min-height:38px; padding:0 8px; border:1px solid #444751; background:#17191f; color:#f7f7f4; font-size:12px; }
+    .upload { display:flex; align-items:center; gap:10px; }
+    .upload label { padding:10px 12px; background:#202238; color:white; font-size:11px; font-weight:700; cursor:pointer; }
+    .upload input { width:1px; height:1px; position:absolute; clip:rect(0,0,0,0); }
+    .upload span { min-width:0; overflow:hidden; color:#b7bbc4; font-size:10px; text-overflow:ellipsis; }
+    .request { width:100%; min-height:46px; border:0; border-radius:8px; background:var(--lime); color:#111827; cursor:pointer; font-size:12px; font-weight:800; transition:background .2s,transform .2s; }
+    .request:hover { background:#e7ff83; transform:translateY(-1px); }
+    .order-note { margin:16px 0 10px; padding:11px 12px; border:1px solid #ffffff24; border-radius:10px; background:#ffffff0a; color:#d5d8e0; font-size:11px; line-height:1.65; }
+    .footer { padding:17px; border-top:1px solid var(--line); color:var(--muted); font-size:10px; text-align:center; }
+    @media(min-width:851px) {
+      html, body { width:100%; height:100%; overflow:hidden; }
+      body { min-height:0; }
+    }
+    @media(max-width:850px) {
+      .header { flex-wrap:wrap; gap:8px; }
+      .brand { align-self:center; }
+      .nav { width:100%; justify-content:space-between; gap:7px; font-size:10px; }
+      .nav .order-link { padding:8px; }
+      .page-title { padding:23px 15px 16px; }
+      .page-title h1 { font-size:12px; }
+      .page-description { font-size:12px; }
+      .studio { height:auto; min-height:0; display:flex; flex-direction:column; }
+      .preview-area { position:sticky; z-index:3; top:0; height:auto; min-height:0; padding:0; background:#08090d; }
+      .stage { height:clamp(220px,58vw,370px); min-height:220px; flex:none; }
+      .sign-board { width:min(84%,580px); min-height:94px; padding:12px; }
+      .sign-text { font-size:clamp(27px,9vw,55px); }
+      .scenes { gap:7px; padding:8px 12px; }
+      .scene { flex-basis:60px; }
+      .controls { height:auto; max-height:none; overflow:visible; padding:16px 15px 30px; border:0; }
+      .font-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .font-option { height:43px; font-size:13px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="index.html"><img class="brand-mark" src="logo.webp" alt=""><span>Neon Tbilisi</span></a>
+    <nav class="nav" aria-label="მთავარი ნავიგაცია"><a href="index.html">მთავარი</a><a href="shop.html">მაღაზია</a><a href="works.html">ნამუშევრები</a><a href="contact.html">კონტაქტი</a><a class="order-link" href="order.html">შეკვეთა</a></nav>
+  </header>
+  <div class="page-title"><p>Neon Tbilisi · შენი იდეა ნეონის სინათლეში</p><h1>ნეონი შენს ინტერიერში</h1><p class="page-description">ნეონი არის ის, რაც შენ გინდა: შესანიშნავი საჩუქარი, ნეონი შენს ინტერიერში, ლოგო შენი ბიზნესისთვის ან დეკორი შენი სახლისა და ოფისისთვის.</p></div>
+  <main class="studio">
+    <section class="preview-area" aria-label="ნეონის ცოცხალი წინასწარი ნახვა">
+      <div class="stage" id="stage" style="background-image:url('design many pictures_files/GARDEN.jpg')"><div class="stage-label"></div><div class="sign-board" id="sign-board"><div class="sign-text" id="sign-preview">Your Dream</div></div></div>
+      <div class="scenes" aria-label="აირჩიე ფონი">
+        <button class="scene" data-scene="design many pictures_files/GARDEN.jpg" data-environment="შავი ფონი" aria-label="შავი ფონი" aria-pressed="true"><img src="design many pictures_files/GARDEN.jpg" alt="შავი ფონი"></button>
+        <button class="scene" data-scene="CAFE.jpeg" data-environment="კაფე" aria-label="კაფეს ფონი" aria-pressed="false"><img src="CAFE.jpeg" alt="კაფეს ინტერიერი"></button>
+        <button class="scene" data-scene="house.jpeg" data-environment="მისაღები ოთახი" aria-label="სახლის ფონი" aria-pressed="false"><img src="house.jpeg" alt="სახლის ინტერიერი"></button>
+        <button class="scene" data-scene="kitchen.jpeg" data-environment="სამზარეულო" aria-label="სამზარეულოს ფონი" aria-pressed="false"><img src="kitchen.jpeg" alt="სამზარეულოს ინტერიერი"></button>
+        <button class="scene" data-scene="OFFICE.jpeg" data-environment="ოფისი" aria-label="ოფისის ფონი" aria-pressed="false"><img src="OFFICE.jpeg" alt="ოფისის ინტერიერი"></button>
+      </div>
+    </section>
+    <section class="controls" aria-label="დიზაინის პარამეტრები">
+      <section class="step"><h2>1 · შენი წარწერა</h2><textarea class="text-input" id="sign-input" maxlength="70" aria-label="ნეონის ტექსტი">Your Dream</textarea></section>
+      <section class="step"><h2>2 · აირჩიე შრიფტი <span>40 ვარიანტი</span></h2><div class="font-grid" id="font-grid"></div></section>
+      <section class="step"><h2>3 · აირჩიე რამდენიმე ფერი</h2><div class="color-grid" id="color-grid"></div></section>
+      <section class="step"><h2>4 · ზომა და გასწორება</h2><div class="size-row"><label><span class="field-label">აბრის ზომა</span><select class="select" id="sign-size"><option value="55%" data-size="40 × 20 სმ">40 × 20 სმ — კომპაქტური</option><option value="78%" data-size="60 × 30 სმ" selected>60 × 30 სმ — საშუალო</option><option value="94%" data-size="80 × 40 სმ">80 × 40 სმ — ფართო</option></select></label><label><span class="field-label">ტექსტის გასწორება</span><select class="select" id="sign-align"><option value="center">ცენტრში</option><option value="left">მარცხნივ</option><option value="right">მარჯვნივ</option></select></label></div></section>
+      <section class="step"><label><span class="field-label">სად განათავსებთ?</span><select class="select" id="sign-placement"><option value="სახლში">სახლში</option><option value="გარეთ">გარეთ</option></select></label></section>
+      <section class="step"><h2>5 · ატვირთე შენი ფოტო</h2><div class="upload"><label for="room-photo">ფოტოს არჩევა</label><input id="room-photo" type="file" accept="image/*"><span id="photo-name">JPG ან PNG</span></div></section>
+      <p class="order-note">თქვენი დიზაინის ფოტო ავტომატურად გადმოიწერება. უბრალოდ გახსენით WhatsApp, აირჩიეთ გადმოწერილი ფოტო ან გააკეთეთ Paste (Ctrl+V) და გამოგვიგზავნეთ!</p>
+      <button class="request" id="request-design" type="button">WhatsApp-ზე გაგზავნა ↗</button>
+    </section>
+  </main>
+  <footer class="footer">Neon Tbilisi · შენი სივრცე, შენი სინათლე</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" referrerpolicy="no-referrer"></script>
+  <script>
+    const fonts = [["Pacifico","Pacifico","cursive"],["Prague","Playfair Display","serif"],["Tokyo","Comfortaa","sans-serif"],["New York","Monoton","cursive"],["Bucharest","Allura","cursive"],["Los Angeles","Oswald","sans-serif"],["Barcelona","Sacramento","cursive"],["Havana","Righteous","sans-serif"],["Paris","Great Vibes","cursive"],["Miami","Permanent Marker","cursive"],["Mykonos","Caveat","cursive"],["Sydney","Caveat","cursive"],["London","Bebas Neue","sans-serif"],["Singapore","Josefin Sans","sans-serif"],["Bora Bora","Allura","cursive"],["Milano","Playfair Display","serif"],["Bangkok","Oswald","sans-serif"],["Amsterdam","Pacifico","cursive"],["Venice","Sacramento","cursive"],["Buenos Aires","Comfortaa","sans-serif"],["Maldives","Great Vibes","cursive"],["Berlin","Archivo Black","sans-serif"],["Budapest","Fredoka","sans-serif"],["Mexico","Monoton","cursive"],["Santorini","Caveat","cursive"],["Seoul","Orbitron","sans-serif"],["Stockholm","Josefin Sans","sans-serif"],["Bali","Comfortaa","sans-serif"],["Dubai","Righteous","sans-serif"],["Rio","Permanent Marker","cursive"],["Saudi","Bebas Neue","sans-serif"],["Pacifico 2","Pacifico","cursive"],["Prague 2","Archivo Black","sans-serif"],["Neon Script","Sacramento","cursive"],["Retro","Monoton","cursive"],["Classic","DM Sans","sans-serif"],["Handwritten","Caveat","cursive"],["Elegant","Playfair Display","serif"],["Bold","Fredoka","sans-serif"],["Modern","Orbitron","sans-serif"]];
+    const colors = [["თეთრი","#f5f4ed"],["თბილი თეთრი","#ffd294"],["ყვითელი","#f7f45d"],["ნარინჯისფერი","#ff7b32"],["წითელი","#ff353b"],["ვარდისფერი","#ff5e8e"],["ცხელი ვარდისფერი","#ff27c8"],["იისფერი","#b76aff"],["ლურჯი","#40aaff"],["ცისფერი","#55e4f2"],["მწვანე","#63ee83"],["ლაიმი","#c2ff42"],["ფირუზისფერი","#38d9bd"],["ოქროსფერი","#ffce53"],["ელექტრო ლურჯი","#5264ff"]];
+    const preview = document.querySelector("#sign-preview");
+    const selected = new Set(["#55e4f2"]);
+    let activeColor = "#55e4f2";
+    let activeFont = 0;
+    const fontGrid = document.querySelector("#font-grid");
+    fonts.forEach(([label,family,fallback],index) => { const button=document.createElement("button"); button.type="button"; button.className="font-option"; button.textContent=label; button.style.fontFamily=`"${family}",${fallback}`; button.setAttribute("aria-pressed",String(index===0)); button.onclick=()=>{activeFont=index;preview.style.fontFamily=`"${family}",${fallback}`;fontGrid.querySelectorAll("button").forEach((item,i)=>item.setAttribute("aria-pressed",String(i===index)));}; fontGrid.append(button); });
+    preview.style.fontFamily=`"${fonts[0][1]}",${fonts[0][2]}`;
+    const colorGrid = document.querySelector("#color-grid");
+    colors.forEach(([name,color])=>{const button=document.createElement("button");button.type="button";button.className="color-choice";button.setAttribute("aria-label",name);button.setAttribute("aria-pressed",String(selected.has(color)));button.innerHTML=`<span class="swatch" style="--swatch:${color}"></span><span>${name}</span>`;button.onclick=()=>{if(selected.has(color)){if(activeColor!==color){activeColor=color;}else{if(selected.size===1)return;selected.delete(color);activeColor=[...selected].at(-1);}}else{selected.add(color);activeColor=color;}button.setAttribute("aria-pressed",String(selected.has(color)));updateColors();};colorGrid.append(button);});
+    function updateColors(){const palette=[...selected];document.documentElement.style.setProperty("--sign-color",activeColor);document.documentElement.style.setProperty("--sign-glow",activeColor);document.documentElement.style.setProperty("--neon-gradient",`linear-gradient(90deg,${palette.join(",")})`);}
+    document.querySelector("#sign-input").addEventListener("input",event=>preview.textContent=event.target.value||"Your Dream");
+    document.querySelectorAll(".scene").forEach(button=>button.onclick=()=>{document.querySelector("#stage").style.backgroundImage=`url('${button.dataset.scene}')`;document.querySelectorAll(".scene").forEach(item=>item.setAttribute("aria-pressed",String(item===button)));});
+    document.querySelector("#sign-size").onchange=event=>document.querySelector("#sign-board").style.width=`min(${event.target.value},680px)`;
+    document.querySelector("#sign-align").onchange=event=>preview.style.textAlign=event.target.value;
+    document.querySelector("#room-photo").onchange=event=>{const file=event.target.files[0];if(file){document.querySelector("#stage").style.backgroundImage=`url('${URL.createObjectURL(file)}')`;document.querySelector("#photo-name").textContent=file.name;}};
+    const requestButton=document.querySelector("#request-design");
+    const selectedSize=()=>document.querySelector("#sign-size").selectedOptions[0].dataset.size;
+    requestButton.onclick=async()=>{
+      const whatsappWindow=window.open("about:blank","_blank");
+      const text=document.querySelector("#sign-input").value||"Your Dream";
+      const font=fonts[activeFont][0];
+      const colorNames=[...selected].map(color=>colors.find(item=>item[1]===color)[0]).join(", ");
+      const environment=document.querySelector(".scene[aria-pressed='true']")?.dataset.environment||"არ არის არჩეული";
+      const placement=document.querySelector("#sign-placement").value;
+      const specifications=`Neon Tbilisi — დიზაინის მოთხოვნა\n\nდიზაინის ტიპი: ინდივიდუალური ნეონის აბრა\nტექსტი: ${text}\nზომა: ${selectedSize()}\nშრიფტი: ${font}\nფერი: ${colorNames}\nგარემო: ${environment}\nგანთავსება: ${placement}`;
+      requestButton.disabled=true;
+      try{
+        if(!window.html2canvas)throw new Error("Preview capture is unavailable");
+        await document.fonts.ready;
+        const canvas=await html2canvas(document.querySelector("#stage"),{scale:2,useCORS:true,backgroundColor:null});
+        const imageBlob=await new Promise(resolve=>canvas.toBlob(resolve,"image/png"));
+        if(!imageBlob)throw new Error("Could not create preview image");
+        const imageUrl=URL.createObjectURL(imageBlob);
+        const downloadLink=document.createElement("a");
+        downloadLink.href=imageUrl;
+        downloadLink.download="neoni-design.png";
+        downloadLink.click();
+        setTimeout(()=>URL.revokeObjectURL(imageUrl),60000);
+        let copied=false;
+        try{
+          if(navigator.clipboard&&window.ClipboardItem){
+            await navigator.clipboard.write([new ClipboardItem({"image/png":imageBlob})]);
+            copied=true;
+          }
+        }catch{}
+        const note=copied?"დიზაინის ფოტო დაკოპირებულია — ჩატში ჩასასმელად გამოიყენეთ Paste (Ctrl+V).":"დიზაინის ფოტო ჩამოიტვირთა როგორც neoni-design.png — WhatsApp ჩატში აირჩიეთ ეს ფოტო.";
+        const whatsappUrl=`https://wa.me/995571522215?text=${encodeURIComponent(`${specifications}\n\n${note}`)}`;
+        if(whatsappWindow)whatsappWindow.location.href=whatsappUrl;
+        else window.location.href=whatsappUrl;
+      }catch(error){
+        if(whatsappWindow)whatsappWindow.close();
+        window.alert("დიზაინის ესკიზის შექმნა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.");
+      }finally{
+        requestButton.disabled=false;
+      }
+    };
+  </script>
+</body>
+</html>

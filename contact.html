@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <link rel="icon" type="image/png" sizes="150x150" href="logo.png">
+  <meta name="description" content="დაუკავშირდი Neon Tbilisi-ს და მოითხოვე შენზე მორგებული ნეონის აბრა.">
+  <title>კონტაქტი და შეკვეთა — Neon Tbilisi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f7f7f4;
+      --muted: #b7bbc4;
+      --line: #343741;
+      --soft: #14161c;
+      --accent: #d7f45b;
+      --font: "DM Sans", "Noto Sans Georgian", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #08090d; color: #f7f7f4; font-family: var(--font); }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .header { position:relative; z-index:2; min-height:90px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:5px; padding:8px max(24px,calc((100vw - 1120px) / 2)) 11px; border-bottom:1px solid #ffffff22; background:#08090d; }
+    .brand { display:inline-flex; align-items:center; justify-content:center; gap:10px; font-size:17px; font-weight:800; letter-spacing:1px; white-space:nowrap; }
+    .brand-mark { width: 44px; height: 44px; display:block; object-fit:contain; }
+    .header-actions { display:flex; align-items:center; justify-content:center; gap:20px; font-size:12px; }
+    .header-nav { display:flex; align-items:center; justify-content:center; gap:16px; color:#e5e7eb; font-size:12px; }
+    @media (max-width:850px) { .header-nav { font-size:10px; } }
+    .back-link { color: #e5e7eb; }
+    .back-link:hover { color: #d7f45b; }
+    .header-whatsapp { padding: 10px 15px; background: #fff; color: #111827; transition: background .2s; }
+    .header-whatsapp:hover { background: #303b4f; }
+    .leaf-decoration { position: fixed; z-index: 0; width: clamp(170px, 24vw, 320px); opacity: .28; pointer-events: none; }
+    .leaf-left { top: 21%; left: -100px; }
+    .leaf-right { right: -100px; bottom: 5%; transform: scaleX(-1) rotate(-8deg); }
+    .page { position: relative; z-index: 1; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 65px 0 80px; }
+    .intro { max-width:700px; margin:0 auto 35px; text-align:center; }
+    .eyebrow { margin: 0 0 12px; color: #d7f45b; font-size: 11px; font-weight: 800; letter-spacing: 1.7px; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(36px, 5vw, 54px); line-height: 1.1; letter-spacing: 0; }
+    .intro-copy { max-width:650px; margin:17px auto 0; color:#c1c5ce; font-size:15px; line-height:1.8; }
+    .trust { display:flex; align-items:center; justify-content:center; gap:10px; margin-top:21px; padding:13px 15px; border:1px solid #41452e; background:#15170f; color:#e5e8d2; font-size:12px; line-height:1.6; text-align:left; }
+    .trust-star { flex: 0 0 auto; font-size: 16px; }
+    .layout { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: 22px; align-items: start; }
+    .card { padding: 27px; border: 1px solid var(--line); background: var(--soft); color:var(--ink); }
+    .card h2 { margin: 0; font-size: 21px; line-height: 1.35; }
+    .card-intro { margin: 9px 0 21px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .contact-list { display: grid; gap: 11px; }
+    .contact-link { min-height: 61px; display: flex; align-items: center; gap: 13px; padding: 12px; border: 1px solid var(--line); background: #1b1d24; color:#f7f7f4; transition: border-color .2s, background .2s; }
+    .contact-link:hover { border-color: #777d8a; background: #242730; }
+    .contact-icon { width: 35px; height: 35px; display: grid; flex: 0 0 35px; place-items: center; background: #292c35; color: #f7f7f4; }
+    .contact-icon svg { width: 17px; height: 17px; }
+    .contact-detail { min-width: 0; display: grid; gap: 3px; }
+    .contact-label { color: #b7bbc4; font-size: 10px; }
+    .contact-value { overflow-wrap: anywhere; font-size: 13px; font-weight: 600; }
+    .whatsapp-link { min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 15px; padding: 10px 14px; background: #d7f45b; color: #111827; font-size: 12px; font-weight: 700; transition: background .2s; }
+    .whatsapp-link:hover { background: #e7ff83; }
+    .whatsapp-link svg { width: 17px; height: 17px; }
+    .map-card { margin-top: 15px; padding: 15px; border: 1px solid var(--line); background: #1b1d24; color:#f7f7f4; }
+    .map-card strong { display: block; margin-bottom: 5px; font-size: 12px; }
+    .map-card p { margin: 0 0 12px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+    .map-link { min-height: 39px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 12px; border: 1px solid #454954; background: #242730; color:#f7f7f4; font-size: 11px; font-weight: 700; transition: background .2s, border-color .2s; }
+    .map-link:hover { border-color: #777d8a; background: #30343e; }
+    .form-card { background: #14161c; color:#f7f7f4; }
+    .request-note { margin: 10px 0 21px; padding: 12px 13px; border-left: 3px solid #d7f45b; background: #1c1e25; color: #d1d5db; font-size: 12px; line-height: 1.7; }
+    .design-summary { margin: 0 0 17px; padding: 12px 13px; border: 1px solid var(--line); background: #1b1d24; color:#f7f7f4; }
+    .design-summary[hidden] { display: none; }
+    .summary-label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; }
+    .summary-value { color: #f7f7f4; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+    .field { display: block; margin-bottom: 15px; }
+    .field-label { display: block; margin-bottom: 6px; color:#f3f4f6; font-size: 12px; font-weight: 700; }
+    .field input, .field textarea { width: 100%; border: 1px solid #454954; border-radius: 0; outline: 0; background: #1b1d24; color: #f7f7f4; font-size: 14px; transition: border-color .15s, box-shadow .15s; }
+    .field input { height: 45px; padding: 0 12px; }
+    .field textarea { min-height: 115px; padding: 11px 12px; resize: vertical; line-height: 1.65; }
+    .field input::placeholder, .field textarea::placeholder { color: #9ca3af; }
+    .field input:focus, .field textarea:focus { border-color: #d7f45b; box-shadow: 0 0 0 3px #d7f45b24; }
+    .submit-button { width: 100%; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 9px; border: 0; background: #d7f45b; color: #111827; cursor: pointer; font-size: 13px; font-weight: 700; transition: background .2s; }
+    .submit-button:hover { background: #e7ff83; }
+    .submit-button svg { width: 17px; height: 17px; }
+    .form-footnote { margin: 10px 0 0; color: var(--muted); font-size: 10px; line-height: 1.6; text-align: center; }
+    .footer { padding: 20px 24px; border-top: 1px solid #ffffff22; color: #b7bbc4; font-size: 11px; text-align: center; }
+    @media (max-width: 740px) {
+      .header { height:auto; min-height:62px; align-items:flex-start; flex-direction:column; gap:10px; padding:10px 18px; }
+      .brand { align-self:center; }
+      .header-actions { width: 100%; gap: 10px; font-size: 10px; }
+      .header-nav { flex: 1; justify-content: space-between; gap: 8px; font-size:10px; }
+      .header-whatsapp { padding: 8px 9px; font-size: 9px; white-space: nowrap; }
+      .back-link { font-size: 10px; }
+      .page { width: min(100% - 36px, 540px); padding: 40px 0 54px; }
+      .intro { margin-bottom: 25px; }
+      h1 { font-size: 38px; }
+      .intro-copy { font-size: 14px; }
+      .layout { grid-template-columns: 1fr; gap: 14px; }
+      .card { padding: 21px; }
+      .form-card { grid-row: 1; }
+      .contact-card { grid-row: 2; }
+    }
+    @media (max-width: 370px) {
+      .header-nav .back-link { display: none; }
+      .page { width: calc(100% - 28px); }
+      .card { padding: 17px; }
+      .trust { align-items: flex-start; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="index.html"><img class="brand-mark" src="logo.webp" alt=""><span>Neon Tbilisi</span></a>
+    <nav class="header-actions" aria-label="გვერდის ნავიგაცია">
+      <span class="header-nav"><a href="index.html">მთავარი</a><a href="shop.html">მაღაზია</a><a href="works.html">ნამუშევრები</a><a class="back-link" href="designer.html">დიზაინერი</a><a href="order.html">შეკვეთა</a></span>
+      <a class="header-whatsapp" href="https://wa.me/995571522215" target="_blank" rel="noopener noreferrer">მოგვწერე WhatsApp-ზე</a>
+    </nav>
+  </header>
+  <img class="leaf-decoration leaf-left" src="Leaves-1.webp" alt="" aria-hidden="true">
+  <img class="leaf-decoration leaf-right" src="Leaves-2.webp" alt="" aria-hidden="true">
+
+  <main class="page">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">NEON TBILISI · კონტაქტი</p>
+      <h1 id="page-title">მოხარული ვიქნებით, თუ მოგვწერ.</h1>
+      <p class="intro-copy">გაქვს შეკითხვა ან გინდა ნეონის შეკვეთა? დაგვიკავშირდი ელფოსტით, ტელეფონით ან WhatsApp-ით.</p>
+      <div class="trust"><span class="trust-star" aria-hidden="true">🌟</span><span>5000-ზე მეტი კმაყოფილი მომხმარებელი | გარანტირებული ხარისხი და სწრაფი მიწოდება</span></div>
+    </section>
+
+    <div class="layout">
+      <aside class="card contact-card" aria-labelledby="contact-title">
+        <h2 id="contact-title">საკონტაქტო ინფორმაცია</h2>
+        <p class="card-intro">შეკითხვა გაქვს ნეონზე ან შეკვეთაზე? დაგვიკავშირდი პირდაპირ.</p>
+        <div class="contact-list">
+          <a class="contact-link" href="mailto:neontbilisi@gmail.com">
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></span>
+            <span class="contact-detail"><span class="contact-label">ელფოსტა</span><span class="contact-value">neontbilisi@gmail.com</span></span>
+          </a>
+          <a class="contact-link" href="tel:+995571522215">
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 3a14 14 0 0 1-9-9l3-2-1-4Z"/></svg></span>
+            <span class="contact-detail"><span class="contact-label">ტელეფონი</span><span class="contact-value">+995 571 52 22 15</span></span>
+          </a>
+        </div>
+        <a class="whatsapp-link" href="https://wa.me/995571522215" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z"/><path d="M8 8.2c.4 2.3 2.5 4.5 4.8 5 .6.1 1-.2 1.3-.8l.5-1-2-1-1 1c-1-.4-1.6-1-2-2l.8-.9-1-2-1 .4c-.5.2-.6.7-.4 1.3Z"/></svg>
+          მოგვწერე WhatsApp-ზე <span aria-hidden="true">↗</span>
+        </a>
+        <div class="map-card"><strong>ჩვენი მდებარეობა</strong><p>ნახე ჩვენი მდებარეობა რუკაზე და დაგეგმე ჩვენთან ვიზიტი.</p><a class="map-link" href="https://maps.app.goo.gl/yBcT71UuaUeqb5zbA?g_st=ic" target="_blank" rel="noopener noreferrer">გახსნა Google Maps-ში <span aria-hidden="true">↗</span></a></div>
+      </aside>
+
+      <section class="card form-card" aria-labelledby="order-title">
+        <h2 id="order-title">შეუკვეთე ნეონის აბრა</h2>
+        <p class="request-note">ატვირთე ლოგო ან აღწერე სასურველი ტექსტი, მიუთითე ზომა და ჩვენი ოპერატორი დაგიკავშირდება შეკვეთის დეტალების შესათანხმებლად.</p>
+        <a class="submit-button" href="order.html">შეკვეთის მოთხოვნის შევსება <span aria-hidden="true">↗</span></a>
+        <p class="form-footnote">შეკვეთის ფორმა ცალკე გვერდზეა და ორ მარტივ ეტაპს მოიცავს.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">Neon Tbilisi · შენს სივრცეზე მორგებული ნეონის აბრები</footer>
+
+</body>
+</html>

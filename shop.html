@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <link rel="icon" type="image/png" sizes="150x150" href="logo.png">
+  <meta name="description" content="აირჩიე ნეონის აბრა შენი სახლისთვის, ბიზნესისთვის ან საჩუქრად.">
+  <title>Neon Tbilisi — ნეონის დიზაინები</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme:light; --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --soft:#f9fafb; --lime:#d7f45b; --font:"Noto Sans Georgian","DM Sans",sans-serif; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#08090d; color:#f7f7f4; font-family:var(--font); }
+    a { color:inherit; text-decoration:none; }
+    .header { min-height:90px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; padding:8px clamp(16px,4vw,52px) 12px; border-bottom:1px solid #ffffff22; background:#08090d; }
+    .brand { display:flex; align-items:center; justify-content:center; gap:10px; font:800 17px "DM Sans",sans-serif; letter-spacing:2px; }
+    .mark { width:47px; height:47px; display:block; object-fit:contain; }
+    .nav { display:flex; align-items:center; justify-content:center; gap:18px; color:#e5e7eb; font-size:12px; }
+    .nav a:hover { color:#d7f45b; }
+    .nav .order { padding:11px 15px; background:#f7f7f4; color:#111827; font-size:12px; font-weight:700; white-space:nowrap; }
+    .page { width:min(1180px,calc(100% - 40px)); margin:auto; padding:56px 0 76px; }
+    .intro { max-width:670px; margin-bottom:31px; }
+    .intro p { margin:0 0 10px; color:#d7f45b; font-size:10px; font-weight:800; letter-spacing:1.3px; }
+    h1 { margin:0; font-size:clamp(28px,4vw,42px); line-height:1.2; }
+    .intro span { display:block; margin-top:12px; color:#c1c5ce; font-size:13px; line-height:1.8; }
+    .products { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+    .product { min-width:0; overflow:hidden; border:1px solid #ffffff25; border-radius:14px; background:#15171d; color:#f7f7f4; transition:border-color .2s,transform .2s; }
+    .product:hover { transform:translateY(-3px); border-color:#adb98a; }
+    .product-image { width:100%; aspect-ratio:1.15; display:block; object-fit:cover; background:#090a0d; }
+    .product-body { padding:16px; }
+    .product-type { margin:0 0 7px; color:#d7f45b; font-size:10px; font-weight:800; letter-spacing:.7px; }
+    .product h2 { margin:0; color:#fff; font-size:18px; }
+    .product-copy { min-height:54px; margin:9px 0 12px; color:#c1c5ce; font-size:12px; line-height:1.65; }
+    .product-size { min-height:24px; margin:0 0 12px; color:#f2c7e1; font-size:11px; font-weight:700; }
+    .product-actions { display:flex; gap:8px; }
+    .button { min-height:43px; display:flex; flex:1; align-items:center; justify-content:center; padding:8px; border:1px solid #ffffff35; border-radius:9px; font-size:11px; font-weight:700; text-align:center; transition:background .2s,color .2s; }
+    .button-primary { border-color:#d7f45b; background:#d7f45b; color:#111827; }
+    .button-primary:hover { border-color:#e7ff83; background:#e7ff83; }
+    .button-secondary:hover { background:#ffffff12; }
+    .custom-band { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-top:25px; padding:22px; background:#15171d; border:1px solid #ffffff25; border-radius:14px; color:#fff; }
+    .custom-band strong { display:block; margin-bottom:5px; font-size:14px; }
+    .custom-band span { color:#c1c5ce; font-size:12px; line-height:1.7; }
+    .custom-band .button { flex:0 0 auto; padding-inline:17px; }
+    .footer { padding:20px; border-top:1px solid #ffffff22; color:#b7bbc4; font-size:10px; text-align:center; }
+    @media(max-width:1050px) { .products { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:850px) { .header { min-height:0; align-items:flex-start; flex-direction:column; gap:9px; padding:9px 16px; } .brand { align-self:center; } .nav { width:100%; justify-content:space-between; gap:5px; font-size:10px; } .nav .order { padding:8px; font-size:10px; } }
+    @media(max-width:560px) { .page { width:calc(100% - 32px); padding:38px 0 50px; } .products { grid-template-columns:1fr; gap:13px; } .product { display:grid; grid-template-columns:40% 1fr; } .product-image { height:100%; min-height:195px; aspect-ratio:auto; } .product-body { padding:14px; } .product-copy { min-height:0; } .custom-band { align-items:flex-start; flex-direction:column; } .custom-band .button { width:100%; } }
+    @media(max-width:390px) { .product { grid-template-columns:1fr; } .product-image { height:auto; min-height:0; aspect-ratio:1.55; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="index.html"><img class="mark" src="logo.webp" alt=""><span>Neon Tbilisi</span></a>
+    <nav class="nav" aria-label="მთავარი ნავიგაცია"><a href="index.html">მთავარი</a><a href="shop.html">მაღაზია</a><a href="works.html">ნამუშევრები</a><a href="designer.html">დიზაინერი</a><a href="contact.html">კონტაქტი</a><a class="order" href="order.html">შეკვეთა</a></nav>
+  </header>
+  <main class="page">
+    <section class="intro">
+      <p>NEON TBILISI · განსაკუთრებული მომენტებისთვის</p>
+      <h1>ნეონის დიზაინები შენი დღესასწაულისთვის</h1>
+      <span>შეარჩიე მზა იდეა ქორწილისთვის, დაბადების დღისთვის ან გენდერული წვეულებისთვის. ფასის გასაგებად გამოგვიგზავნე შეკვეთა — ღირებულება ზომისა და დიზაინის მიხედვით განისაზღვრება.</span>
+    </section>
+    <section class="products" aria-label="სადღესასწაულო ნეონის დიზაინები">
+      <article class="product"><img class="product-image" src="marryme1.jpg" alt="Marry Me ნეონი საქორწილო დეკორში"><div class="product-body"><p class="product-type">ნიშნობა · შეთავაზება</p><h2>Marry Me</h2><p class="product-copy">რომანტიკული ნეონი ქორწინების შეთავაზებისა და ნიშნობის დაუვიწყარი მომენტისთვის.</p><p class="product-size">ზომები: 60 სმ ან 80 სმ</p><div class="product-actions"><a class="button button-primary" href="order.html?type=text&amp;text=Marry%20Me">შეკვეთის მოთხოვნა</a></div></div></article>
+      <article class="product"><img class="product-image" src="weddingday1.jpg" alt="Wedding Day ნეონი საქორწილო სივრცეში"><div class="product-body"><p class="product-type">ქორწილი</p><h2>Wedding Day</h2><p class="product-copy">თბილი, გამორჩეული აქცენტი საქორწილო ცერემონიისა და ფოტოზონისთვის.</p><p class="product-size">ზომები: 60 სმ ან 80 სმ</p><div class="product-actions"><a class="button button-primary" href="order.html?type=text&amp;text=Wedding%20Day">შეკვეთის მოთხოვნა</a></div></div></article>
+      <article class="product"><img class="product-image" src="mr%26mrs1.jpg" alt="Mr &amp; Mrs ნეონი ყვავილებიან კედელზე"><div class="product-body"><p class="product-type">ქორწილი · ახალდაქორწინებულები</p><h2>Mr &amp; Mrs</h2><p class="product-copy">ელეგანტური საქორწილო აბრა წყვილის მაგიდის, სცენის ან ფოტოზონის გასაფორმებლად.</p><p class="product-size">ზომა შეირჩევა შეკვეთისას</p><div class="product-actions"><a class="button button-primary" href="order.html?type=text&amp;text=Mr%20%26%20Mrs">შეკვეთის მოთხოვნა</a></div></div></article>
+      <article class="product"><img class="product-image" src="Love1.jpg" alt="Love ნეონი გულის ფორმით"><div class="product-body"><p class="product-type">სიყვარული · დეკორი</p><h2>Love It</h2><p class="product-copy">გულის ფორმითა და ნაზი განათებით შექმნილი რომანტიკული დეკორი საყვარელი სივრცისთვის.</p><p class="product-size">ზომა შეირჩევა შეკვეთისას</p><div class="product-actions"><a class="button button-primary" href="order.html?type=text&amp;text=Love%20It">შეკვეთის მოთხოვნა</a></div></div></article>
+      <article class="product"><img class="product-image" src="itsagirl.jpg" alt="It's a Girl ნეონი გენდერული წვეულებისთვის"><div class="product-body"><p class="product-type">გენდერული წვეულება</p><h2>It's a Girl</h2><p class="product-copy">ვარდისფერი ნეონი პატარა გოგონას მოლოდინის აღსანიშნავად და წვეულების გასალამაზებლად.</p><p class="product-size">ზომა შეირჩევა შეკვეთისას</p><div class="product-actions"><a class="button button-primary" href="order.html?type=text&amp;text=It%27s%20a%20Girl">შეკვეთის მოთხოვნა</a></div></div></article>
+      <article class="product"><img class="product-image" src="itsaboy_files/483130011_18084154819611900_1876569902488305434_n.webp" alt="It's a Boy ლურჯი ნეონი გენდერული წვეულებისთვის"><div class="product-body"><p class="product-type">გენდერული წვეულება</p><h2>It's a Boy</h2><p class="product-copy">ლურჯი ნეონი სიხარულის გასაზიარებლად და გენდერული წვეულების განსაკუთრებულ დეკორად.</p><p class="product-size">ზომა შეირჩევა შეკვეთისას</p><div class="product-actions"><a class="button button-primary" href="order.html?type=text&amp;text=It%27s%20a%20Boy">შეკვეთის მოთხოვნა</a></div></div></article>
+      <article class="product"><img class="product-image" src="iloveyou1.jpg" alt="I Love You ლურჯი ნეონი"><div class="product-body"><p class="product-type">საჩუქარი · სიყვარული</p><h2>I Love You</h2><p class="product-copy">პირადი და გულწრფელი საჩუქარი იუბილესთვის, წლისთავისთვის ან ყოველდღიური სიურპრიზისთვის.</p><p class="product-size">ზომა შეირჩევა შეკვეთისას</p><div class="product-actions"><a class="button button-primary" href="order.html?type=text&amp;text=I%20Love%20You">შეკვეთის მოთხოვნა</a></div></div></article>
+      <article class="product"><img class="product-image" src="happybirthday1.jpg" alt="Happy Birthday ნეონი დაბადების დღის წვეულებაზე"><div class="product-body"><p class="product-type">დაბადების დღე</p><h2>Happy Birthday</h2><p class="product-copy">ფერადი ნეონი დაბადების დღის წვეულებისთვის, ფოტოზონისა და სადღესასწაულო დეკორისთვის.</p><p class="product-size">ზომა შეირჩევა შეკვეთისას</p><div class="product-actions"><a class="button button-primary" href="order.html?type=text&amp;text=Happy%20Birthday">შეკვეთის მოთხოვნა</a></div></div></article>
+    </section>
+    <section class="custom-band"><div><strong>გინდა განსხვავებული წარწერა ან ზომა?</strong><span>შექმენი შენი დიზაინი ან გამოგვიგზავნე იდეა — ერთად შევარჩევთ შესაბამის ვარიანტს.</span></div><a class="button button-primary" href="designer.html">შექმენი დიზაინი</a></section>
+  </main>
+  <footer class="footer">Neon Tbilisi · შენი სივრცე, შენი სინათლე</footer>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="150x150" href="logo.png">
+  <meta name="description" content="Neon Tbilisi — შექმენი შენზე მორგებული ნეონის აბრა სახლისა თუ ბიზნესისთვის.">
+  <title>Neon Tbilisi — ნეონი შენს ინტერიერში</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&family=Pacifico&family=Playfair+Display:ital,wght@1,600&family=Permanent+Marker&family=Allura&family=Oswald:wght@400;500;600&family=Monoton&family=Righteous&family=Caveat:wght@500;700&family=Great+Vibes&family=Archivo+Black&family=Bebas+Neue&family=Sacramento&family=Fredoka:wght@500;600;700&family=Comfortaa:wght@500;700&family=Josefin+Sans:wght@500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #08090d;
+      --panel: #ffffff;
+      --panel-soft: #f9fafb;
+      --paper: #f7f7f4;
+      --muted: #6b7280;
+      --line: rgba(255,255,255,.14);
+      --lime: #d7f45b;
+      --sign-color: #ff48c4;
+      --sign-glow: rgba(255,72,196,.88);
+      --sign-font: "Pacifico", cursive;
+      --font: "Noto Sans Georgian", "DM Sans", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100vh; background: var(--page); color: var(--paper); font-family: var(--font); }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; }
+    .site-header { min-height:90px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; padding:8px clamp(16px,4vw,52px) 12px; border-bottom:1px solid var(--line); background:#08090d; }
+    .brand { display:inline-flex; align-items:center; gap:10px; color:#fff; font:800 17px "DM Sans",sans-serif; letter-spacing:1.2px; }
+    .site-header .brand { align-self:center; }
+    .brand-mark { width: 47px; height: 47px; display: block; object-fit: contain; }
+    .header-note { color: var(--muted); font-size: 11px; }
+    .header-links { display:flex; align-items:center; justify-content:center; gap:18px; }
+    .header-link { color: #e5e7eb; font-size: 12px; transition: color .2s; }
+    .header-link:hover { color: #d7f45b; }
+    .header-order { padding: 11px 15px; background: #f7f7f4; color: #111827; font-size: 12px; font-weight: 700; white-space:nowrap; transition: background .2s; }
+    .header-order:hover { background: #d7f45b; }
+    .home-hero { position:relative; width:min(1280px,calc(100% - 48px)); min-height:580px; display:grid; grid-template-columns:1fr 1.05fr; align-items:center; gap:52px; margin:0 auto; padding:58px 0 68px; background:radial-gradient(ellipse at 79% 45%,#741c5830,transparent 39%),#08090d; }
+    .home-video { grid-column:2; grid-row:1; width:100%; height:440px; display:block; object-fit:cover; object-position:center; background:#111827; border:1px solid #ffffff2a; border-radius:22px; box-shadow:0 24px 70px #0008,0 0 60px #e32d8730; }
+    .home-copy { grid-column: 1; grid-row: 1; max-width: 580px; padding-left: clamp(0px, 3vw, 34px); }
+    .home-eyebrow { width:max-content; display:flex; align-items:center; gap:10px; margin:0 0 22px; padding:9px 13px; border:1px solid #d7f45b44; border-radius:99px; background:#d7f45b0c; color:#d7f45b; font:italic 600 15px "Pacifico",cursive; }
+    .home-eyebrow::before { width:7px; height:7px; border-radius:50%; background:#d7f45b; box-shadow:0 0 12px #d7f45b; content:""; }
+    .home-title { max-width:620px; margin:0; color:#fff; font-size:clamp(32px,4vw,52px); line-height:1.16; font-weight:800; letter-spacing:-.025em; text-wrap:balance; }
+    .home-description { max-width:500px; margin:20px 0 28px; color:#c1c5ce; font-size:15px; line-height:1.85; }
+    .home-actions { display: flex; flex-wrap: wrap; gap: 11px; }
+    .home-button { min-height:52px; display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:0 21px; border:1px solid #ffffff50; border-radius:12px; color:#f7f7f4; font-size:13px; font-weight:700; transition:transform .2s,background .2s,color .2s,border-color .2s; }
+    .home-button:hover { transform:translateY(-2px); }
+    .home-button.primary { border-color:#d7f45b; background:#d7f45b; color:#111827; box-shadow:0 12px 32px #d7f45b28; }
+    .home-button.primary:hover { border-color:#e7ff83; background:#e7ff83; }
+    .home-button:not(.primary):hover { border-color:#fff; background:#ffffff12; }
+    .home-products { padding: 56px clamp(20px, 5vw, 68px) 60px; background: #08090d; color: #f7f7f4; }
+    .home-products-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; max-width: 1220px; margin: 0 auto 23px; }
+    .home-products-head p { margin: 0 0 8px; color: #68772a; font-size: 10px; font-weight: 800; letter-spacing: 1.2px; }
+    .home-products-head h2 { margin: 0; font-size: 32px; }
+    .home-products-head span { max-width: 390px; color: #b7bbc4; font-size: 12px; line-height: 1.7; }
+    .home-product-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; max-width: 1220px; margin: 0 auto; }
+    .home-product { min-height: 100px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px; border: 1px solid #e1e4e9; background: #fff; color:#17181d; transition: border-color .2s, transform .2s; }
+    .home-product:hover { transform: translateY(-2px); border-color: #aeb995; }
+    .home-product strong { display: block; margin-bottom: 5px; font-size: 13px; }
+    .home-product small { color: #72747a; font-size: 10px; }
+    .home-product b { color: #75852d; font: 18px "DM Sans", sans-serif; }
+    .design-gallery { width: min(1220px, calc(100% - 40px)); margin: 0 auto; padding: 64px 0; color:#f7f7f4; }
+    .design-gallery-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:22px; }
+    .design-gallery-head p { margin:0 0 8px; color:#68772a; font-size:10px; font-weight:800; letter-spacing:1px; }
+    .design-gallery-head h2 { margin:0; font-size:32px; }
+    .design-gallery-head span { max-width:390px; color:#b7bbc4; font-size:12px; line-height:1.75; }
+    .design-gallery-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .design-example { position:relative; min-width:0; overflow:hidden; background:#f3f4f6; }
+    .design-example img { width:100%; aspect-ratio:1.55; display:block; object-fit:cover; transition:transform .35s; }
+    .design-example:hover img { transform:scale(1.025); }
+    .design-caption { display:flex; align-items:center; justify-content:space-between; gap:15px; padding:15px 17px; background:#fff; color:#111827; border:1px solid #e5e7eb; border-top:0; }
+    .design-caption strong { font-size:13px; }
+    .design-caption span { color:#6b7280; font-size:10px; }
+    .reviews { padding:50px clamp(20px,5vw,68px); background:#08090d; color:#f7f7f4; }
+    .reviews-head,.review-photos,.review-grid,.review-link { width:min(1080px,100%); margin-right:auto; margin-left:auto; }
+    .reviews-head { display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:18px; }
+    .reviews-head p { margin:0 0 8px; color:#d7f45b; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; }
+    .reviews-head h2 { margin:0; color:#fff; font-size:clamp(23px,3vw,32px); line-height:1.3; }
+    .google-rating { display:flex; align-items:center; gap:8px; color:#e8e9ed; font-size:12px; font-weight:600; }
+    .google-rating b { font-size:14px; }
+    .google-rating span { color:#f2b544; letter-spacing:1px; }
+    .review-photos { display:none; }
+    .review-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .review { min-width:0; min-height:0; display:flex; flex-direction:column; gap:10px; padding:16px; border:1px solid #303238; border-radius:12px; background:#111216; color:#f7f7f4; }
+    .review-stars { order:2; color:#f2b544; font-size:12px; letter-spacing:1.5px; }
+    .review p { order:3; margin:0; color:#d1d3d8; font-size:12px; line-height:1.7; }
+    .review strong { order:1; display:flex; align-items:center; gap:10px; color:#f3f4f6; font-size:11px; font-weight:600; }
+    .review-avatar { width:36px; height:36px; flex:0 0 36px; display:block; border:1px solid #ffffff24; border-radius:50%; object-fit:cover; }
+    .review strong::after { content:"G"; margin-left:auto; color:#4285f4; font:700 15px Arial,sans-serif; }
+    .review .review-photos { order:4; display:flex; gap:8px; width:auto; margin:2px 0 0; }
+    .review .review-photo { width:86px; margin:0; padding:0; overflow:hidden; border:1px solid #34363d; border-radius:9px; background:#08090d; }
+    .review .review-photo img { width:84px; height:84px; display:block; object-fit:cover; }
+    .review .review-photo figcaption { display:none; }
+    .review-link { display:flex; width:max-content; margin-top:16px; color:#b9c0cc; font-size:11px; font-weight:600; text-decoration:none; }
+    .review-link:hover { color:#fff; text-decoration:underline; text-underline-offset:3px; }
+    .home-footer { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px clamp(20px,5vw,68px); border-top:1px solid #ffffff22; background:#08090d; color:#b7bbc4; font-size:10px; }
+    .home-footer a { color:#f7f7f4; }
+    .designer-heading { width:min(1220px,calc(100% - 40px)); margin:0 auto; padding:48px 24px 24px; text-align:center; }
+    .designer-heading, .studio { display:none !important; }
+    .designer-heading p { margin:0 0 10px; color:#ffd3f2; font:italic 600 clamp(18px,2.2vw,24px) "Pacifico",cursive; }
+    .designer-heading h2 { margin:0; color:var(--paper); font-size:clamp(24px,3vw,34px); line-height:1.25; font-weight:800; letter-spacing:.01em; }
+    .studio { width:min(1320px,calc(100% - 40px)); min-height:calc(100vh - 64px); display:grid; grid-template-columns:minmax(0,1.1fr) minmax(390px,.9fr); gap:22px; margin:0 auto 54px; padding:20px; border:1px solid #ffffff1c; border-radius:28px; background:linear-gradient(135deg,#ffffff0d,#ffffff03); box-shadow:0 28px 90px #0008; }
+    .stage-column { position: sticky; top: 16px; height: calc(100vh - 96px); min-height: 620px; display: flex; flex-direction: column; padding: 8px; }
+    .stage { position: relative; flex: 1; min-height: 0; display: grid; place-items: center; overflow: hidden; background: #131713; background-position: center; background-size: cover; isolation: isolate; transition: background-image .3s ease; }
+    .stage::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.1) 53%,rgba(0,0,0,.36)); }
+    .stage::after { content: ""; position: absolute; z-index: -1; inset: 0; box-shadow: inset 0 0 110px rgba(0,0,0,.32); pointer-events: none; }
+    .stage-label { position: absolute; top: 17px; left: 18px; display: flex; align-items: center; gap: 8px; padding: 8px 11px; background: #101114ad; border: 1px solid #ffffff20; color: white; font-size: 10px; backdrop-filter: blur(10px); }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #a9ed6c; box-shadow: 0 0 9px #a9ed6c; }
+    .sign-wrap { width: min(78%, 680px); min-height: 135px; display: grid; place-items: center; padding: 20px; border: 1px solid #ffffff22; background: rgba(10,10,10,.1); box-shadow: 0 10px 38px #0005, inset 0 0 25px #0002; transform: rotate(-1deg); transition: width .2s, min-height .2s, opacity .2s; }
+    .sign-text { max-width: 100%; color: transparent; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px var(--sign-color); background-image: var(--neon-gradient, linear-gradient(90deg, var(--sign-color), var(--sign-color))); background-clip: text; -webkit-background-clip: text; font-family: var(--sign-font); font-size: clamp(26px, 5.3vw, 76px); line-height: 1.15; text-align: center; overflow-wrap: anywhere; white-space: pre-wrap; text-shadow: 0 0 3px #fff, 0 0 8px var(--sign-glow), 0 0 22px var(--sign-glow), 0 0 48px var(--sign-glow); filter: drop-shadow(0 0 13px var(--sign-glow)); transition: color .2s, text-shadow .2s, font-family .2s, font-size .2s; }
+    .stage.is-off .sign-text { opacity: .14; filter: none; text-shadow: none; }
+    .stage.is-off .sign-wrap { border-color: #ffffff10; }
+    .stage-tools { position: absolute; right: 16px; top: 16px; display: flex; gap: 8px; }
+    .icon-button { width: 38px; height: 38px; display: grid; place-items: center; padding: 0; border: 1px solid #ffffff35; background: #101114ad; cursor: pointer; backdrop-filter: blur(8px); }
+    .icon-button:hover { border-color: var(--lime); color: var(--lime); }
+    .icon-button svg { width: 17px; height: 17px; }
+    .scene-rail { display: flex; gap: 9px; overflow-x: auto; padding: 12px 2px 5px; scrollbar-width: none; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; touch-action:pan-x; }
+    .scene-rail::-webkit-scrollbar { display: none; }
+    .scene-button { position: relative; flex: 0 0 102px; aspect-ratio: 1.35; padding: 0; overflow: hidden; border: 1px solid #fff3; border-radius:12px; background: #202229; cursor: pointer; scroll-snap-align:start; touch-action:manipulation; }
+    .scene-button img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .75; transition: opacity .2s, transform .2s; }
+    .scene-button:hover img, .scene-button[aria-pressed="true"] img { opacity: 1; transform: scale(1.05); }
+    .scene-button[aria-pressed="true"] { outline: 2px solid var(--lime); outline-offset: -2px; }
+    .controls { min-width:0; height:calc(100vh - 104px); min-height:620px; overflow-y:auto; padding:24px clamp(18px,2.4vw,32px) 30px; border:1px solid #ffffff24; border-radius:22px; background:linear-gradient(145deg,rgba(27,29,39,.84),rgba(10,11,17,.70)); color:#f7f7f4; box-shadow:0 18px 55px #0007,inset 0 1px #ffffff13; backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); scrollbar-color:#747984 transparent; scrollbar-width:thin; }
+    .controls-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    .controls-heading h1 { margin:0; font-size:clamp(21px,2vw,26px); line-height:1.3; }
+    .controls-heading p { margin:6px 0 0; color:#c3c6cf; font-size:12px; }
+    .benefit-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px 14px; margin:18px 0 4px; padding:14px; border:1px solid #ffffff1c; border-radius:14px; background:#ffffff08; }
+    .benefit-grid span { display:flex; align-items:flex-start; gap:8px; color:#e7e8ed; font-size:12px; line-height:1.5; }
+    .benefit-grid span::before { content:"✓"; color:#d7f45b; font-weight:800; }
+    .step { padding:18px 0; border-top:1px solid #ffffff1c; }
+    .step-title { display:flex; align-items:center; gap:9px; margin:0 0 12px; font-family:"DM Sans",var(--font); font-size:14px; font-weight:800; }
+    .step-number { width:23px; height:23px; display:inline-grid; flex:0 0 23px; place-items:center; border-radius:50%; background:#ffffff16; color:#e3f67e; font:700 11px "DM Sans",sans-serif; }
+    .text-input { width:100%; min-height:80px; resize:vertical; padding:13px 14px; border:1px solid #ffffff2e; border-radius:10px; outline:0; background:#11131caa; color:#fff; font-size:14px; line-height:1.5; }
+    .text-input:focus { border-color: #222747; box-shadow: 0 0 0 2px #22274718; }
+    .input-meta { display:flex; justify-content:space-between; gap:12px; margin-top:6px; color:#b7bbc4; font-size:11px; }
+    .font-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .font-heading .step-title { margin-bottom: 7px; }
+    .font-count { color: #787a82; font-size: 10px; white-space: nowrap; }
+    .font-note { margin: 0 0 12px; color: #686a72; font-size: 11px; line-height: 1.6; }
+    .font-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+    .font-option { min-width:0; height:42px; padding:3px 4px; overflow:hidden; border:1px solid #ffffff20; border-radius:8px; background:#ffffff0b; color:#f4f4f6; cursor:pointer; font-size:12px; white-space:nowrap; text-overflow:ellipsis; }
+    .font-option:hover { border-color: #a5a7ad; }
+    .font-option[aria-pressed="true"] { border-color:#d7f45b; background:#d7f45b; color:#111827; }
+    .color-note { margin: -4px 0 12px; color: #686a72; font-size: 11px; line-height: 1.6; }
+    .color-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 11px 8px; }
+    .color-choice { display:flex; min-width:0; flex-direction:column; align-items:center; gap:6px; padding:0; border:0; background:transparent; color:#e0e2e7; cursor:pointer; }
+    .color-swatch { position: relative; width: min(100%, 48px); aspect-ratio: 1; display: grid; place-items: center; border: 3px solid #fff; outline: 1px solid #d9dade; border-radius: 12px; background: var(--swatch); box-shadow: inset 0 0 0 1px #0000000c; }
+    .color-choice[aria-pressed="true"] .color-swatch { outline: 2px solid #17192e; outline-offset: 2px; }
+    .color-swatch svg { width: 16px; height: 16px; opacity: 0; color: var(--check-color, #fff); filter: drop-shadow(0 1px 2px #0008); }
+    .color-choice[aria-pressed="true"] .color-swatch svg { opacity: 1; }
+    .color-name { font-size: 9px; text-align: center; line-height: 1.35; }
+    .stage-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .field-label { display:block; margin-bottom:6px; color:#c3c6cf; font-size:11px; }
+    .select-field { width:100%; min-height:42px; padding:0 10px; border:1px solid #ffffff2b; border-radius:9px; background:#11131caa; color:#fff; font-size:12px; }
+    .placement-field { margin-top:12px; }
+    .upload-row { display: flex; align-items: center; gap: 12px; }
+    .upload-button { min-height: 41px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 13px; border: 1px solid #202238; background: #202238; color: #fff; cursor: pointer; font-size: 11px; font-weight: 700; }
+    .upload-button svg { width: 15px; height: 15px; }
+    .upload-name { min-width:0; overflow:hidden; color:#c3c6cf; font-size:11px; text-overflow:ellipsis; white-space:nowrap; }
+    #image-file { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+    .finish-row { display: flex; gap: 8px; padding-top: 14px; border-top: 1px solid #dfe0e3; }
+    .finish-button { min-height:52px; display:inline-flex; flex:1; align-items:center; justify-content:center; gap:8px; padding:0 12px; border:0; border-radius:12px; background:linear-gradient(110deg,#ff3a93,#a445f2 55%,#477bff); color:white; cursor:pointer; font-size:12px; font-weight:800; box-shadow:0 10px 28px #a445f244; }
+    .finish-button.secondary { flex: 0 0 45px; padding: 0; background: #e8e9ec; color: #18191e; }
+    .finish-button svg { width: 17px; height: 17px; }
+    .toast { position: fixed; z-index: 20; left: 50%; bottom: 20px; max-width: calc(100vw - 32px); padding: 11px 16px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: #181a1f; color: white; font-size: 12px; transition: opacity .2s, transform .2s; }
+    .toast.show { transform: translate(-50%, 0); opacity: 1; }
+    @media (max-width: 850px) {
+      .site-header { height:auto; min-height:56px; align-items:flex-start; flex-direction:column; gap:9px; padding:9px 16px; }
+      .header-note { font-size: 10px; }
+      .header-links { width: 100%; justify-content: space-between; gap: 5px; }
+      .header-link { display: inline; font-size: 10px; }
+      .header-order { padding: 8px; font-size: 10px; }
+      .home-hero { min-height: 0; grid-template-columns: 1fr; gap: 25px; padding: 35px 0 42px; }
+      .home-video { grid-column: 1; grid-row: 2; height: clamp(220px, 62vw, 340px); }
+      .home-copy { grid-column: 1; grid-row: 1; padding-left: 0; }
+      .home-title { max-width:520px; font-size:clamp(28px,8vw,40px); line-height:1.18; }
+      .home-description { max-width:470px; font-size:14px; }
+      .home-products { padding: 34px 18px; }
+      .home-products-head { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .home-product-list { grid-template-columns: 1fr; }
+      .home-product { min-height: 75px; }
+      .design-gallery { width: calc(100% - 36px); padding: 43px 0; }
+      .design-gallery-head, .reviews-head { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .design-gallery-grid, .review-grid, .review-photos { grid-template-columns: 1fr; }
+      .design-example img { aspect-ratio: 1.35; }
+      .reviews { padding: 45px 18px; }
+      .review-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .home-footer { align-items:flex-start; flex-direction:column; gap:9px; }
+      .designer-heading { padding: 37px 20px 20px; }
+      .designer-heading h2 { font-size: 25px; }
+      .studio { width:calc(100% - 24px); display:flex; min-height:0; flex-direction:column; gap:12px; margin-bottom:30px; padding:9px; border-radius:20px; }
+      .stage-column { position:relative; z-index:1; top:auto; height:auto; min-height:0; padding:0; background:transparent; box-shadow:none; }
+      .stage { height: clamp(230px, 58vw, 400px); min-height: 230px; flex: none; }
+      .stage-label { top: 10px; left: 10px; padding: 6px 8px; font-size: 9px; }
+      .stage-tools { top: 9px; right: 9px; gap: 6px; }
+      .icon-button { width: 34px; height: 34px; }
+      .sign-wrap { width: min(84%, 580px); min-height: 96px; padding: 12px; }
+      .sign-text { font-size: clamp(26px, 9vw, 58px); }
+      .scene-rail { gap: 7px; padding: 8px 12px 9px; }
+      .scene-button { flex-basis:84px; min-height:64px; }
+      .controls { width:100%; height:auto; min-height:0; overflow:visible; padding:18px 15px calc(32px + env(safe-area-inset-bottom)); border-radius:17px; }
+      .controls-heading { margin-bottom: 12px; }
+      .controls-heading h1 { font-size: 23px; }
+      .step { padding: 16px 0; }
+      .font-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+      .font-option { height: 43px; font-size: 14px; }
+      .color-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px 4px; }
+      .color-swatch { width: min(100%, 46px); }
+      .color-name { font-size: 9px; }
+      .finish-row { position:sticky; z-index:4; bottom:0; margin-inline:-15px; padding:10px 15px max(10px,env(safe-area-inset-bottom)); background:#10121bea; backdrop-filter:blur(12px); }
+    }
+    @media (max-width: 370px) {
+      .header-note { display: none; }
+      .controls { padding-inline: 13px; }
+      .font-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .color-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .finish-row { margin-inline: -13px; padding-inline: 13px; }
+    }
+    @media (max-width:560px) { .review-grid { grid-template-columns:1fr; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Neon Tbilisi მთავარი"><img class="brand-mark" src="logo.webp" alt=""><span>Neon Tbilisi</span></a>
+    <nav class="header-links" aria-label="მთავარი ნავიგაცია"><a class="header-link" href="index.html">მთავარი</a><a class="header-link" href="shop.html">მაღაზია</a><a class="header-link" href="works.html">ნამუშევრები</a><a class="header-link" href="designer.html">დიზაინერი</a><a class="header-link" href="contact.html">კონტაქტი</a><a class="header-order" href="order.html" aria-label="შეკვეთის მოთხოვნა">შეკვეთა</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="home-hero" aria-labelledby="home-title">
+      <video class="home-video" autoplay muted playsinline preload="auto" aria-hidden="true">
+        <source src="animation.mp4" type="video/mp4">
+      </video>
+      <div class="home-copy">
+        <p class="home-eyebrow">LED ნეონის აბრები უნიკალური დიზაინით</p>
+        <h1 class="home-title" id="home-title">ნეონი შენს ინტერიერში</h1>
+        <p class="home-description">ნეონი არის ის, რაც შენ გინდა: შესანიშნავი საჩუქარი, ნეონი შენს ინტერიერში, ლოგო შენი ბიზნესისთვის ან დეკორი შენი სახლისა და ოფისისთვის.</p>
+        <div class="home-actions">
+          <a class="home-button primary" href="shop.html">პროდუქტები <span aria-hidden="true">↗</span></a>
+          <a class="home-button" href="designer.html">დიზაინის შექმნა <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="designer-heading" id="designer" aria-labelledby="designer-title">
+      <p>სწრაფი, მარტივი და ხელმისაწვდომი</p>
+      <h2 id="designer-title">შენი ტექსტი ან ლოგო ნეონში</h2>
+    </section>
+
+    <section class="studio">
+    <section class="stage-column" aria-label="ნეონის ცოცხალი წინასწარი ნახვა">
+      <div class="stage" id="stage" style="background-image:url('GARDEN.jpeg')">
+        <div class="stage-label"><span class="live-dot"></span> ცოცხალი წინასწარი ნახვა</div>
+        <div class="stage-tools">
+          <button class="icon-button" id="toggle-glow" type="button" aria-label="ნეონის განათების ჩართვა ან გამორთვა" title="განათების ჩართვა ან გამორთვა">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18h6M10 22h4M8 14.5a7 7 0 1 1 8 0c-.8.6-1 1.2-1 1.5H9c0-.3-.2-.9-1-1.5Z"/><path d="M12 2v2M4.93 4.93l1.42 1.42M2 12h2M19.07 4.93l-1.42 1.42M20 12h2"/></svg>
+          </button>
+          <button class="icon-button" id="fullscreen" type="button" aria-label="სრული ეკრანის ნახვა" title="სრული ეკრანი">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </button>
+        </div>
+        <div class="sign-wrap"><div class="sign-text" id="sign-preview">შენი ნეონი</div></div>
+      </div>
+      <div class="scene-rail" aria-label="აირჩიე ფონი">
+        <button class="scene-button" type="button" data-scene="GARDEN.jpeg" data-environment="ბაღი" aria-label="მწვანე ბაღის კედელი" aria-pressed="true"><img src="GARDEN.jpeg" alt="მწვანე ფოთლების კედელი"></button>
+        <button class="scene-button" type="button" data-scene="CAFE.jpeg" data-environment="კაფე" aria-label="კაფეს აგურის კედელი" aria-pressed="false"><img src="CAFE.jpeg" alt="კაფეს აგურის კედელი"></button>
+        <button class="scene-button" type="button" data-scene="house.jpeg" data-environment="მისაღები ოთახი" aria-label="მისაღები ოთახი" aria-pressed="false"><img src="house.jpeg" alt="მისაღები ოთახის ინტერიერი"></button>
+        <button class="scene-button" type="button" data-scene="kitchen.jpeg" data-environment="სამზარეულო" aria-label="სამზარეულო" aria-pressed="false"><img src="kitchen.jpeg" alt="სამზარეულოს ინტერიერი"></button>
+        <button class="scene-button" type="button" data-scene="OFFICE.jpeg" data-environment="ოფისი" aria-label="ოფისი" aria-pressed="false"><img src="OFFICE.jpeg" alt="თანამედროვე ოფისი"></button>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="ნეონის დიზაინის პარამეტრები">
+      <div class="controls-heading">
+        <div><h1>შენი ტექსტი ან ლოგო ნეონში</h1><p>შექმენი შენი დიზაინი — მარტივად და სწრაფად</p></div>
+      </div>
+      <div class="benefit-grid" aria-label="დიზაინის უპირატესობები"><span>შექმენი ინდივიდუალური დიზაინი</span><span>აირჩიე სასურველი ფერი</span><span>შეარჩიე შრიფტი და ზომა</span><span>ნახე ნეონი სხვადასხვა გარემოში</span></div>
+
+      <section class="step" aria-labelledby="text-heading">
+        <h2 class="step-title" id="text-heading"><span class="step-number">1</span> შენი წარწერა</h2>
+        <textarea class="text-input" id="sign-input" maxlength="70" placeholder="ჩაწერე შენი ტექსტი..." aria-label="ნეონის წარწერა">შენი ნეონი</textarea>
+        <div class="input-meta"><span>შეცვალე ტექსტი და ნახე შედეგი</span><span id="char-count">10 / 70</span></div>
+      </section>
+
+      <section class="step" aria-labelledby="font-heading">
+        <div class="font-heading"><h2 class="step-title" id="font-heading"><span class="step-number">2</span> აირჩიე შრიფტი</h2><span class="font-count">40 ვარიანტი</span></div>
+        <p class="font-note">შეეხე შრიფტს და მაშინვე ნახე, როგორ გამოიყურება შენი წარწერა.</p>
+        <div class="font-grid" id="font-grid" aria-label="შრიფტის არჩევა"></div>
+      </section>
+
+      <section class="step" aria-labelledby="color-heading">
+        <h2 class="step-title" id="color-heading"><span class="step-number">3</span> აირჩიე ფერები</h2>
+        <p class="color-note">შეგიძლია მონიშნო რამდენიმე ფერი და გამოიყენო ისინი სხვადასხვა სიტყვაზე.</p>
+        <div class="color-grid" id="color-grid" aria-label="ნეონის ფერების არჩევა"></div>
+      </section>
+
+      <section class="step" aria-labelledby="options-heading">
+        <h2 class="step-title" id="options-heading"><span class="step-number">4</span> მოარგე მაკეტი</h2>
+        <div class="stage-options">
+          <label><span class="field-label">აბრის ზომა</span><select class="select-field" id="sign-size"><option value="compact">40 × 20 სმ — კომპაქტური</option><option value="regular" selected>60 × 30 სმ — საშუალო</option><option value="wide">80 × 40 სმ — ფართო</option></select></label>
+          <label><span class="field-label">წარწერის გასწორება</span><select class="select-field" id="sign-align"><option value="center" selected>ცენტრში</option><option value="left">მარცხნივ</option><option value="right">მარჯვნივ</option></select></label>
+        </div>
+        <label class="placement-field"><span class="field-label">სად განათავსებთ?</span><select class="select-field" id="sign-placement"><option value="სახლში">სახლში</option><option value="გარეთ">გარეთ</option></select></label>
+      </section>
+
+      <section class="step" aria-labelledby="upload-heading">
+        <h2 class="step-title" id="upload-heading"><span class="step-number">5</span> დაამატე შენი ფოტო</h2>
+        <div class="upload-row">
+          <label class="upload-button" for="image-file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5M4 16v4h16v-4"/></svg>ატვირთე ფოტო</label>
+          <input id="image-file" type="file" accept="image/*">
+          <span class="upload-name" id="upload-name">JPG ან PNG</span>
+        </div>
+      </section>
+
+      <div class="finish-row">
+        <button class="finish-button" id="request-design" type="button">უფასო დიზაინი და ფასის გამოთვლა <span aria-hidden="true">↗</span></button>
+        <button class="finish-button secondary" id="reset-design" type="button" aria-label="პარამეტრების განულება" title="განულება"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.64-6.36L3 8"/><path d="M3 3v5h5"/></svg></button>
+      </div>
+    </section>
+    </section>
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="reviews-head">
+        <div><p>მომხმარებლების გამოცდილება</p><h2 id="reviews-title">რას ამბობენ ჩვენი მომხმარებლები</h2></div>
+        <div class="google-rating" aria-label="Google-ის ხუთვარსკვლავიანი შეფასებები"><span aria-hidden="true">★★★★★</span><b>Google</b></div>
+      </div>
+      <div class="review-photos" aria-label="მომხმარებლებისთვის დამზადებული ნეონის ფოტოები">
+        <figure class="review-photo"><img src="design%20many%20pictures_files/review.jpg" alt="ფერადი SpongeBob-ის ნეონი ინტერიერში" loading="lazy"><figcaption>ინდივიდუალური ნეონის შეკვეთა</figcaption></figure>
+        <figure class="review-photo"><img src="design%20many%20pictures_files/review1.jpg" alt="SpongeBob-ის ფერადი ნეონის ახლო ხედი" loading="lazy"><figcaption>დეტალები ახლოდან</figcaption></figure>
+      </div>
+      <div class="review-grid">
+        <article class="review"><div class="review-stars" aria-label="5 ვარსკვლავი">★★★★★</div><p>შესანიშნავი ნამუშევარი, პროფესიონალური მომსახურება და მარტივი კომუნიკაცია. პერსონალური ნეონი მადრიდში დაუზიანებლად ჩამოვიდა, ხოლო ყველა კითხვაზე პასუხი მივიღე. ნამდვილად გირჩევთ!</p><strong><img class="review-avatar" src="reviewer-avatars/manuel-garrido.png" alt="">Manuel Garrido</strong></article>
+        <article class="review"><div class="review-stars" aria-label="5 ვარსკვლავი">★★★★★</div><p>ნეონი თბილისის გუნდთან წლებია ვთანამშრომლობ. ყოველთვის მეგობრულად და პროფესიონალურად მეხმარებიან სწორი ვარიანტის შერჩევაში. შეკვეთას შეთანხმებულ ვადაში ვიღებ და ნეონებს წლებია პრობლემა არ ჰქონიათ.</p><strong><img class="review-avatar" src="reviewer-avatars/taia-arabuli.png" alt="">Taia Arabuli</strong></article>
+        <article class="review"><div class="review-stars" aria-label="5 ვარსკვლავი">★★★★★</div><p>შესანიშნავი ნამუშევარი და მეგობრული მომსახურება. ნამდვილად გირჩევთ!</p><strong><img class="review-avatar" src="reviewer-avatars/nikoloz-kurdadze.png" alt="">Nikoloz Kurdadze</strong></article>
+        <article class="review"><div class="review-stars" aria-label="5 ვარსკვლავი">★★★★★</div><p>უცხოეთიდან ჩემი ძმისთვის ინდივიდუალური ნეონი შევუკვეთე. იდეა ზუსტად ისე განხორციელდა, როგორც მინდოდა, და გუნდიც შეთანხმებებზე მოქნილი იყო. ძალიან კმაყოფილი ვარ — პასუხისმგებლიანი და სანდო მომსახურებაა. ყველას ვურჩევ!</p><strong><img class="review-avatar" src="reviewer-avatars/rolandwbs-chediya.png" alt="">RolandWBS Chediya</strong></article>
+      </div>
+      <a class="review-link" href="https://www.google.com/maps/search/?api=1&query=Neon+Tbilisi%2C+Tbilisi%2C+Georgia" target="_blank" rel="noopener noreferrer">Google Maps-ზე მეტი შეფასება ↗</a>
+    </section>
+  </main>
+  <footer class="home-footer"><span>Neon Tbilisi · შენი სივრცე, შენი სინათლე</span><a href="mailto:neontbilisi@gmail.com">neontbilisi@gmail.com</a><a href="contact.html">კონტაქტი ↗</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const reviewPhotoSource = document.querySelector(".review-photos");
+    const reviewGrid = document.querySelector(".review-grid");
+    const customerPhotoReview = document.createElement("article");
+    customerPhotoReview.className = "review";
+    customerPhotoReview.innerHTML = '<strong><img class="review-avatar" src="reviewer-avatars/tsetskhli-ainto.png" alt="">Tsetskhli Ainto</strong><div class="review-stars" aria-label="5 ვარსკვლავი">★★★★★</div>';
+    reviewGrid.prepend(customerPhotoReview);
+    const rolandReview = [...reviewGrid.querySelectorAll(".review")].find(review => review.textContent.includes("RolandWBS Chediya"));
+    const rolandPhotos = document.createElement("div");
+    rolandPhotos.className = "review-photos";
+    rolandPhotos.setAttribute("aria-label", "RolandWBS Chediya-ს შეფასების ფოტოები");
+    rolandPhotos.append(...reviewPhotoSource.querySelectorAll(".review-photo"));
+    rolandReview.append(rolandPhotos);
+    reviewPhotoSource.remove();
+    reviewGrid.insertAdjacentHTML("beforeend", '<article class="review"><div class="review-stars" aria-label="5 ვარსკვლავი">★★★★★</div><strong><img class="review-avatar" src="reviewer-avatars/giorgi-gurgenidze.png" alt="">Giorgi Gurgenidze</strong></article>');
+
+    const homeVideo = document.querySelector(".home-video");
+    const homeAnimations = ["animation.mp4", "animation2.mp4"];
+    let activeHomeAnimation = 0;
+    homeVideo.addEventListener("ended", () => {
+      activeHomeAnimation = (activeHomeAnimation + 1) % homeAnimations.length;
+      homeVideo.src = homeAnimations[activeHomeAnimation];
+      homeVideo.play().catch(() => {});
+    });
+
+    const fontChoices = [
+      ["Pacifico", "Pacifico", "cursive"], ["Prague", "Playfair Display", "serif"], ["Tokyo", "Comfortaa", "sans-serif"], ["New York", "Monoton", "cursive"],
+      ["Bucharest", "Allura", "cursive"], ["Los Angeles", "Oswald", "sans-serif"], ["Barcelona", "Sacramento", "cursive"], ["Havana", "Righteous", "sans-serif"],
+      ["Paris", "Great Vibes", "cursive"], ["Miami", "Permanent Marker", "cursive"], ["Mykonos", "Caveat", "cursive"], ["Sydney", "Caveat", "cursive"],
+      ["London", "Bebas Neue", "sans-serif"], ["Singapore", "Josefin Sans", "sans-serif"], ["Bora Bora", "Allura", "cursive"], ["Milano", "Playfair Display", "serif"],
+      ["Bangkok", "Oswald", "sans-serif"], ["Amsterdam", "Pacifico", "cursive"], ["Venice", "Sacramento", "cursive"], ["Buenos Aires", "Comfortaa", "sans-serif"],
+      ["Maldives", "Great Vibes", "cursive"], ["Berlin", "Archivo Black", "sans-serif"], ["Budapest", "Fredoka", "sans-serif"], ["Mexico", "Monoton", "cursive"],
+      ["Santorini", "Caveat", "cursive"], ["Seoul", "Orbitron", "sans-serif"], ["Stockholm", "Josefin Sans", "sans-serif"], ["Bali", "Comfortaa", "sans-serif"],
+      ["Dubai", "Righteous", "sans-serif"], ["Rio", "Permanent Marker", "cursive"], ["Saudi", "Bebas Neue", "sans-serif"], ["Hawaii", "Pacifico", "cursive"],
+      ["Prague 2", "Archivo Black", "sans-serif"], ["Neon Script", "Sacramento", "cursive"], ["Retro", "Monoton", "cursive"], ["Classic", "DM Sans", "sans-serif"],
+      ["Handwritten", "Caveat", "cursive"], ["Elegant", "Playfair Display", "serif"], ["Bold", "Fredoka", "sans-serif"], ["Modern", "Orbitron", "sans-serif"]
+    ];
+    const colorChoices = [
+      ["თეთრი", "#f5f4ed", "#fff"], ["თბილი თეთრი", "#ffd294", "#fff"], ["ყვითელი", "#f7f45d", "#202020"], ["ნარინჯისფერი", "#ff7b32", "#fff"], ["წითელი", "#ff353b", "#fff"],
+      ["ვარდისფერი", "#ff5e8e", "#fff"], ["ცხელი ვარდისფერი", "#ff27c8", "#fff"], ["იისფერი", "#b76aff", "#fff"], ["ლურჯი", "#40aaff", "#fff"], ["ცისფერი", "#55e4f2", "#152027"],
+      ["მწვანე", "#63ee83", "#102215"], ["ლაიმი", "#c2ff42", "#1c2410"], ["ფირუზისფერი", "#38d9bd", "#10221e"], ["ოქროსფერი", "#ffce53", "#201b0d"], ["ელექტრო ლურჯი", "#5264ff", "#fff"]
+    ];
+    const fontGrid = document.querySelector("#font-grid");
+    const colorGrid = document.querySelector("#color-grid");
+    const signInput = document.querySelector("#sign-input");
+    const preview = document.querySelector("#sign-preview");
+    const stage = document.querySelector("#stage");
+    const toast = document.querySelector("#toast");
+    let activeFont = 0;
+    let selectedColors = new Set(["#ff27c8"]);
+    let toastTimer;
+
+    if (stage) {
+    fontChoices.forEach(([label, family, fallback], index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "font-option";
+      button.textContent = label;
+      button.style.fontFamily = `"${family}", ${fallback}`;
+      button.setAttribute("aria-pressed", String(index === activeFont));
+      button.addEventListener("click", () => {
+        activeFont = index;
+        preview.style.fontFamily = `"${family}", ${fallback}`;
+        fontGrid.querySelectorAll(".font-option").forEach((item, itemIndex) => item.setAttribute("aria-pressed", String(itemIndex === index)));
+      });
+      fontGrid.append(button);
+    });
+
+    colorChoices.forEach(([name, value, checkColor]) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "color-choice";
+      button.setAttribute("aria-label", `${name} ფერი`);
+      button.setAttribute("aria-pressed", String(selectedColors.has(value)));
+      button.innerHTML = `<span class="color-swatch" style="--swatch:${value};--check-color:${checkColor}"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="color-name">${name}</span>`;
+      button.addEventListener("click", () => {
+        if (selectedColors.has(value)) {
+          if (selectedColors.size === 1) return;
+          selectedColors.delete(value);
+        } else {
+          selectedColors.add(value);
+        }
+        button.setAttribute("aria-pressed", String(selectedColors.has(value)));
+        updateNeonColor();
+      });
+      colorGrid.append(button);
+    });
+
+    function updateNeonColor() {
+      const colors = [...selectedColors];
+      const mainColor = colors[0];
+      document.documentElement.style.setProperty("--sign-color", mainColor);
+      document.documentElement.style.setProperty("--neon-gradient", `linear-gradient(90deg, ${colors.join(", ")})`);
+      document.documentElement.style.setProperty("--sign-glow", mainColor);
+      preview.style.textShadow = `0 0 3px #fff, ${colors.map(color => `0 0 8px ${color}, 0 0 22px ${color}, 0 0 40px ${color}`).join(", ")}`;
+      preview.style.filter = colors.map(color => `drop-shadow(0 0 10px ${color})`).join(" ");
+    }
+
+    signInput.addEventListener("input", () => {
+      preview.textContent = signInput.value || "შენი ნეონი";
+      document.querySelector("#char-count").textContent = `${signInput.value.length} / 70`;
+    });
+
+    document.querySelectorAll(".scene-button").forEach(button => button.addEventListener("click", () => {
+      stage.style.backgroundImage = `url('${button.dataset.scene}')`;
+      document.querySelectorAll(".scene-button").forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+    }));
+
+    document.querySelector("#sign-size").addEventListener("change", event => {
+      const widths = { compact: "55%", regular: "78%", wide: "94%" };
+      stage.querySelector(".sign-wrap").style.width = `min(${widths[event.target.value]}, 680px)`;
+    });
+    document.querySelector("#sign-align").addEventListener("change", event => {
+      preview.style.textAlign = event.target.value;
+      preview.style.justifySelf = event.target.value === "left" ? "start" : event.target.value === "right" ? "end" : "center";
+    });
+    document.querySelector("#toggle-glow").addEventListener("click", () => stage.classList.toggle("is-off"));
+    document.querySelector("#fullscreen").addEventListener("click", async () => {
+      try {
+        if (!document.fullscreenElement) await stage.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch { showToast("სრული ეკრანი ამ მოწყობილობაზე მიუწვდომელია"); }
+    });
+    document.querySelector("#image-file").addEventListener("change", event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith("image/")) { showToast("აირჩიე სურათის ფაილი"); return; }
+      stage.style.backgroundImage = `url('${URL.createObjectURL(file)}')`;
+      document.querySelector("#upload-name").textContent = file.name;
+    });
+    document.querySelector("#request-design").addEventListener("click", () => {
+      const colors = [...selectedColors].map(color => colorChoices.find(item => item[1] === color)?.[0]).join(", ");
+      const request = new URLSearchParams({ text: signInput.value || "შენი ნეონი", font: fontChoices[activeFont][0], colors });
+      window.location.href = `contact.html?${request.toString()}`;
+    });
+    document.querySelector("#reset-design").addEventListener("click", () => {
+      signInput.value = "შენი ნეონი";
+      preview.textContent = "შენი ნეონი";
+      document.querySelector("#char-count").textContent = "10 / 70";
+      document.querySelector("#sign-size").value = "regular";
+      document.querySelector("#sign-align").value = "center";
+      stage.querySelector(".sign-wrap").style.width = "min(78%, 680px)";
+      preview.style.textAlign = "center";
+      preview.style.justifySelf = "center";
+      stage.classList.remove("is-off");
+      stage.style.backgroundImage = "url('GARDEN.jpeg')";
+      document.querySelectorAll(".scene-button").forEach((item, index) => item.setAttribute("aria-pressed", String(index === 0)));
+      selectedColors = new Set(["#ff27c8"]);
+      colorGrid.querySelectorAll(".color-choice").forEach(item => item.setAttribute("aria-pressed", String(item.getAttribute("aria-label").includes("ცხელი ვარდისფერი"))));
+      fontGrid.querySelectorAll(".font-option").forEach((item, index) => item.setAttribute("aria-pressed", String(index === 0)));
+      activeFont = 0;
+      preview.style.fontFamily = '"Pacifico", cursive';
+      document.querySelector("#image-file").value = "";
+      document.querySelector("#upload-name").textContent = "JPG ან PNG";
+      updateNeonColor();
+    });
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+    }
+  </script>
+</body>
+</html>
